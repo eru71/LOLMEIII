@@ -27,13 +27,14 @@
 - (UILabel *)nameLb {
     if(_nameLb == nil) {
         _nameLb = [[UILabel alloc] init];
-        _nameLb.font = [UIFont systemFontOfSize:13];
+        _nameLb.font = [UIFont systemFontOfSize:12];
         _nameLb.textAlignment = NSTextAlignmentLeft;
-//        _nameLb.numberOfLines = 2;
+        _nameLb.numberOfLines = 2;
         [self.contentView addSubview:_nameLb];
         [_nameLb mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.bottom.right.mas_equalTo(0);
-            
+            make.top.mas_equalTo(_iconView.mas_bottom).mas_equalTo(0);
+            make.height.mas_equalTo(30);
         }];
     }
     return _nameLb;
@@ -58,7 +59,7 @@
         [self.iconView addSubview:_imageView];
         [_imageView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.bottom.left.right.mas_equalTo(0);
-            make.height.mas_equalTo(_nameLb.mas_height);
+            make.height.mas_equalTo(20);
         }];
     }
     return _imageView;
